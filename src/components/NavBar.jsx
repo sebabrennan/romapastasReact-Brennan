@@ -1,4 +1,3 @@
-import "./style.css"
 
 const NavBar = () => {
     return <nav class="navbar navbar-expand-lg bg-warning nav-bar">
