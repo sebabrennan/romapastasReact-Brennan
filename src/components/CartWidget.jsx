@@ -1,7 +1,7 @@
-import 'bootstrap/dist/css/bootstrap.css';
+
 
 const CartWidget= () => {
-    return ( <i class="bi bi-cart2"></i>
+    return ( <i class="bi bi-cart2 w-20"></i>
       );
 }
  
