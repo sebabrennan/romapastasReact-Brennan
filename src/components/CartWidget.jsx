@@ -1,7 +1,14 @@
-
+import './NavBar.css';
 
 const CartWidget= () => {
-    return ( <i class="bi bi-cart2 w-20"></i>
+
+  const amount = 4;
+
+    return ( 
+    <>
+      <i class="bi bi-cart2" style={{width: 40}}></i>
+      {amount}
+    </>
       );
 }
  

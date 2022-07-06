@@ -1,7 +1,9 @@
 import CartWidget from "./CartWidget";
 import './NavBar.css';
+import navBarOptions from "./helpers/strings";
 
 const NavBar = ({ name }) => {
+
     return (
     <nav class="navbar navbar-expand-lg bg-warning nav-bar">
       <div class="container-fluid">
@@ -11,19 +13,10 @@ const NavBar = ({ name }) => {
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link linkUnstyled" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link linkUnstyled" href="#">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link linkUnstyled" href="#">About us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link linkUnstyled" href="#">Contact</a>
-            </li>
-            <li class="nav-item">
+	            {navBarOptions.map(navBarOption => <li class="nav-item" key={navBarOption.id}>	
+                    <a class="nav-link" aria-current="page" href="#">{navBarOption.category}</a>
+		        </li>)}
+            <li>
               <CartWidget />
             </li>
           </ul>
