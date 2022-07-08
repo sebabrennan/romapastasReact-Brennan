@@ -5,12 +5,12 @@ const ItemCount = (props) => {
     const [count, setCount] = useState(props.initial);
 
     const handleAdd = () => {
+        if (count<props.stock)
         setCount(count + 1)
     }
 
-    console.log ('CONTINUAR MIN. 19')
-
     const handleSubstract = () => {
+        if (count>1)
         setCount(count - 1)
     }
 
