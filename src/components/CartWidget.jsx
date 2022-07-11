@@ -6,7 +6,7 @@ const CartWidget= () => {
 
     return ( 
     <>
-      <i class="bi bi-cart2" style={{width: 40}}></i>
+      <i className="bi bi-cart2" style={{width: 40}}></i>
       {amount}
     </>
       );
