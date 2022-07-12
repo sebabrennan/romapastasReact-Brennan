@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 
-const ItemCount = (props) => {
+const ItemCount = ({initial, stock}) => {
 
-    const [count, setCount] = useState(props.initial);
+    const [count, setCount] = useState(initial);
 
     const handleAdd = () => {
-        if (count<props.stock)
-        setCount(count + 1)
+        if (count < stock) setCount(prev => prev + 1)
     }
 
-    const handleSubstract = () => {
-        if (count>1)
-        setCount(count - 1)
+    const handleSubstract = () => {		
+        if (count > 1  && stock > 1) setCount(prev => prev - 1)
     }
 
     return ( 

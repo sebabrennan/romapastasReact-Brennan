@@ -19,11 +19,11 @@ const ItemListContainer = (props) => {
         })
     
         promiseItems.then(
-            (respuesta) => {
-                setItems(database)
+            (res) => {
+                setItems(res)
             }
         ).catch(
-            (errorMsg) => console.error(errorMsg)
+            (err) => console.error(err)
         )
     }, [])
 

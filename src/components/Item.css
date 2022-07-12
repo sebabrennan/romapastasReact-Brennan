@@ -1,0 +1,6 @@
+.cardItem {
+    width: 250px;
+    height: 400px;
+    display: block;
+    align-items: center;
+}
