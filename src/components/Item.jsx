@@ -1,11 +1,13 @@
 import './Item.css'
 
-const Item = ({cadaItem}) => {
+const Item = ({cadaItem}) => { 
+
+
     return ( 
         <>
             <div className="card d-flex flex-column align-items-center">
                 <div>
-                    {/* {cadaItem.img} */}
+                    <img src={cadaItem.img} alt="" className='card-img-top'/>
                 </div>
                 <div>
                     <h5>
