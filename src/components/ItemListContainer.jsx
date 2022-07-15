@@ -2,7 +2,7 @@ import database from "./helpers/database";
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
 
     let [items, setItems] = useState([]);
 

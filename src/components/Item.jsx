@@ -1,22 +1,22 @@
 import './Item.css'
 
-const Item = ({cadaItem}) => { 
+const Item = ({price, product, stock, img}) => { 
 
 
     return ( 
         <>
             <div className="card d-flex flex-column align-items-center">
                 <div>
-                    <img src={cadaItem.img} alt="" className='card-img-top'/>
+                    <img src={img} alt="" className='card-img-top'/>
                 </div>
                 <div>
                     <h5>
-                        {cadaItem.product}
+                        {product}
                     </h5>
                 </div>
                 <div>
                     <p>
-                        {cadaItem.price} ARS
+                        {price} ARS
                     </p>
                 </div>
                 <div>
@@ -24,7 +24,7 @@ const Item = ({cadaItem}) => {
                 </div>
                 <div>
                     <p>
-                        Stock disponible: {cadaItem.stock}
+                        Stock disponible: {stock}
                     </p>
                 </div>
             </div>

@@ -10,7 +10,7 @@ const ItemList = ({items}) => {
             <div className="d-flex justify-content-around align-items-center">
             {
                 items.map(
-                    cadaItem => <Item key={cadaItem.id} cadaItem = {cadaItem}/>
+                    cadaItem => <Item key={cadaItem.id} product={cadaItem.product} price={cadaItem.price} stock={cadaItem.stock} img={cadaItem.img}  />
                 )
             }
             </div>
