@@ -6,20 +6,20 @@ const ItemDetailContainer = () => {
 
     const [itemDetail, setItemDetails] = useState([])
 
-    console.log('RENDER ITEM DETAIL')
+    console.log("%c Render ItemDetailContainer", "color: blue");
     console.log(itemDetail)
-    console.log(details)
 
-    useEffect ( () => {
-        const getItem = new Promise ( (resolve, reject) => {
-            setTimeout (
+
+    useEffect( () => {
+        let getItem = new Promise ( (resolve, reject) => {
+            setTimeout(
                 () => {
                     resolve(details)
                 },
                 2000);
         })
-
-        getItem.then (
+    
+        getItem.then(
             (res) => {
                 setItemDetails(res)
             }
@@ -28,11 +28,30 @@ const ItemDetailContainer = () => {
         )
     }, [])
 
+    /* const getItem = new Promise ( (resolve, reject) => {
+        setTimeout (
+            () => {
+                resolve(details)
+            },
+            2000);
+    })
+
+    useEffect ( () => {
+        
+        getItem.then (
+            (res) => {
+                setItemDetails(res, console.log(res))
+            }
+        ).catch(
+            (err) => console.error(err)
+        )
+    }, []) */
+
 
 
     return ( 
         <>
-            <ItemDetail item={itemDetail}/>
+            <ItemDetail itemDetail={itemDetail}/>
         </>
      );
 }

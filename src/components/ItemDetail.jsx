@@ -1,7 +1,10 @@
-const ItemDetail = ({item}) => {
+const ItemDetail = ({itemDetail}) => {
+    
+    console.log('Render ItemDetail', itemDetail)
+
     return ( 
     <>
-    'Detalles del producto' 
+      <h1>{itemDetail.product}</h1>
     </> 
     );
 }
