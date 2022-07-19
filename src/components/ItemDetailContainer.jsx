@@ -1,8 +1,27 @@
 import { useEffect, useState } from "react";
+import database from "./helpers/database";
 import ItemDetail from "./ItemDetail";
-import details from './helpers/details';
 
 const ItemDetailContainer = () => {
+
+    /* function getItem() {
+        return new Promise ( (resolve, reject) => {
+            setTimeout(() => {
+                resolve(database);
+            }, 2000);
+        });
+    }
+
+    function ItemDetailContainer () {
+        const [itemDetail, setItemDetails] = useState([])
+
+        useEffect ( () => {
+            getItem().then( res => {
+                setItemDetails(res);
+            });
+        }, []);
+
+    } */
 
     const [itemDetail, setItemDetails] = useState([])
 
@@ -14,7 +33,7 @@ const ItemDetailContainer = () => {
         let getItem = new Promise ( (resolve, reject) => {
             setTimeout(
                 () => {
-                    resolve(details)
+                    resolve(database)
                 },
                 2000);
         })
@@ -27,27 +46,6 @@ const ItemDetailContainer = () => {
             (err) => console.error(err)
         )
     }, [])
-
-    /* const getItem = new Promise ( (resolve, reject) => {
-        setTimeout (
-            () => {
-                resolve(details)
-            },
-            2000);
-    })
-
-    useEffect ( () => {
-        
-        getItem.then (
-            (res) => {
-                setItemDetails(res, console.log(res))
-            }
-        ).catch(
-            (err) => console.error(err)
-        )
-    }, []) */
-
-
 
     return ( 
         <>

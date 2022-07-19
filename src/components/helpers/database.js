@@ -5,7 +5,8 @@ const database = [
         category:'Sorrentinos',
         price: 450,
         stock: 5,
-        img: '/assets/sorrentinos-jamon-queso.jpg'
+        img: '/assets/sorrentinos-jamon-queso.jpg',
+        description: 'description'
     },
     {
         id: 2,
@@ -13,7 +14,8 @@ const database = [
         category:'Sorrentinos',
         price: 450,
         stock: 5,
-        img: '/assets/sorrentinos-jamon-queso.jpg'
+        img: '/assets/sorrentinos-jamon-queso.jpg',
+        description: 'description'
     },
     {
         id: 3,
@@ -21,7 +23,8 @@ const database = [
         category:'Panzottis',
         price: 400,
         stock: 5,
-        img: '/assets/panzottis-ricota-nuez.jpg'
+        img: '/assets/panzottis-ricota-nuez.jpg',
+        description: 'description'
     },
     {
         id: 4,
@@ -29,7 +32,8 @@ const database = [
         category:'Panzottis',
         price: 400,
         stock: 5,
-        img: '/assets/panzottis-ricota-nuez.jpg'
+        img: '/assets/panzottis-ricota-nuez.jpg',
+        description: 'description'
     },
     {
         id: 5,
@@ -37,7 +41,8 @@ const database = [
         category:'Panzottis',
         price: 400,
         stock: 5,
-        img: '/assets/panzottis-ricota-nuez.jpg'
+        img: '/assets/panzottis-ricota-nuez.jpg',
+        description: 'description'
     },
     {
         id: 6,
@@ -45,7 +50,8 @@ const database = [
         category:'Fideos',
         price: 350,
         stock: 5,
-        img: '/assets/fideos.jpg'
+        img: '/assets/fideos.jpg',
+        description: 'description'
     },
     {
         id: 7,
@@ -53,7 +59,8 @@ const database = [
         category:'Fideos',
         price: 350,
         stock: 5,
-        img: '/assets/fideos-verdes.jpg'
+        img: '/assets/fideos-verdes.jpg',
+        description: 'description'
     },   
 ]
 

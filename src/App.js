@@ -1,17 +1,26 @@
 import NavBar from './components/NavBar';
-/* import ItemListContainer from './components/ItemListContainer';
-import ItemCount from './components/ItemCount'; */
+import ItemListContainer from './components/ItemListContainer';
+import ItemCount from './components/ItemCount';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 function App() {
   return (
     <>
-    
-    <NavBar name="ROMA PASTAS"/>
-   {/*  <ItemListContainer greeting={'Esto es un saludo'}/>
-    <hr></hr>
-    <ItemCount stock={5} initial={1}/> */}
-    <ItemDetailContainer />
+      <BrowserRouter>
+        <NavBar name="ROMA PASTAS"/>
+        <Routes>
+          <Route index element={<ItemListContainer greeting={'Esto es un saludo'}/>} />
+          <Route path="/category/:name" element={<ItemListContainer />} />
+            <Route path="/item/:id" element={<ItemDetailContainer />} />
+            <Route
+              path="*"
+              element={
+                <div style={{ backgroundColor: "red" }}> ERROR 404 NOT FOUND</div>
+              }
+            /> 
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

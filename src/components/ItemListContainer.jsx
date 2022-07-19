@@ -1,5 +1,5 @@
-import database from "./helpers/database";
 import { useState, useEffect } from "react";
+import database from "./helpers/database";
 import ItemList from "./ItemList";
 
 const ItemListContainer = () => {

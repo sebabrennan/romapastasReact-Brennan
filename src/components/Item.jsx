@@ -1,31 +1,22 @@
 import './Item.css'
+import { Link } from "react-router-dom";
 
-const Item = ({price, product, stock, img}) => { 
+const Item = ({ item }) => { 
 
+    const { id, product, category, price, stock, img, description } = item;
 
     return ( 
         <>
-            <div className="card d-flex flex-column align-items-center">
-                <div>
-                    <img src={img} alt="" className='card-img-top'/>
-                </div>
-                <div>
-                    <h5>
+            <div className="card" style={{ width: "15rem" }}>
+                <img src={img} className='card-img-top'/>
+                <div className='card-body d-flex flex-column justify-content-center'>
+                    <h5 className='card-title'>
                         {product}
                     </h5>
-                </div>
-                <div>
-                    <p>
-                        {price} ARS
-                    </p>
-                </div>
-                <div>
-                    <button className="btn">Agregar producto</button>
-                </div>
-                <div>
-                    <p>
-                        Stock disponible: {stock}
-                    </p>
+                    <p className="card-text">{`${stock} units available!`}</p>
+                    <Link to={`detail/${id}`}>
+                        <button className="btn btn-primary">See product details</button>
+                    </Link>
                 </div>
             </div>
         </>
