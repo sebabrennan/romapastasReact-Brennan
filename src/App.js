@@ -10,15 +10,10 @@ function App() {
       <BrowserRouter>
         <NavBar name="ROMA PASTAS"/>
         <Routes>
-          <Route index element={<ItemListContainer greeting={'Esto es un saludo'}/>} />
+          <Route index element={<ItemListContainer />} />
           <Route path="/category/:name" element={<ItemListContainer />} />
-            <Route path="/item/:id" element={<ItemDetailContainer />} />
-            <Route
-              path="*"
-              element={
-                <div style={{ backgroundColor: "red" }}> ERROR 404 NOT FOUND</div>
-              }
-            /> 
+          <Route path="/item/:id" element={<ItemDetailContainer />} />
+          <Route path="*" element={<div style={{ backgroundColor: "red" }}> ERROR 404 NOT FOUND</div>}/> 
         </Routes>
       </BrowserRouter>
     </>

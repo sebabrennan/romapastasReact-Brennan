@@ -1,9 +1,29 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import database from "./helpers/database";
 import ItemDetail from "./ItemDetail";
 
 const ItemDetailContainer = () => {
 
+    const { id } = useParams();
+    console.log(id)
+    const [itemDetail, setItemDetails] = useState([])
+
+    const getItem = new Promise ((resolve) => {
+        setTimeout(() => resolve(database), 2000);
+    });
+
+    useEffect( () => {
+       getItem.then((res) => {
+        const products = res;
+        if (id) {
+            setItemDetails(products.filter((product) => product.id == id))
+        } else {
+            setItemDetails(products);
+        }    
+        });
+   }, [id]);
+    
     /* function getItem() {
         return new Promise ( (resolve, reject) => {
             setTimeout(() => {
@@ -22,30 +42,7 @@ const ItemDetailContainer = () => {
         }, []);
 
     } */
-
-    const [itemDetail, setItemDetails] = useState([])
-
-    console.log("%c Render ItemDetailContainer", "color: blue");
-    console.log(itemDetail)
-
-
-    useEffect( () => {
-        let getItem = new Promise ( (resolve, reject) => {
-            setTimeout(
-                () => {
-                    resolve(database)
-                },
-                2000);
-        })
     
-        getItem.then(
-            (res) => {
-                setItemDetails(res)
-            }
-        ).catch(
-            (err) => console.error(err)
-        )
-    }, [])
 
     return ( 
         <>

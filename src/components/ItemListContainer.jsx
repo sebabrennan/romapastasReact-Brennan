@@ -1,31 +1,28 @@
 import { useState, useEffect } from "react";
 import database from "./helpers/database";
 import ItemList from "./ItemList";
+import { useParams } from "react-router-dom"
 
 const ItemListContainer = () => {
 
-    let [items, setItems] = useState([]);
-
-    console.log("%c Render ItemListContainer", "color: green");
-    console.log(items)
+    const { name } = useParams();
+    console.log(name)
+    const [items, setItems] = useState([]);
+    
+    const promise = new Promise ((resolve) => {
+        setTimeout(() => resolve(database), 2000);
+    });
 
     useEffect( () => {
-        let promiseItems = new Promise ( (resolve, reject) => {
-            setTimeout(
-                () => {
-                    resolve(database)
-                },
-                2000);
-        })
-    
-        promiseItems.then(
-            (res) => {
-                setItems(res)
+        promise.then((res) => {
+            const products = res;
+            if (name) {
+                setItems(products.filter((product) => product.category == name))
+            } else {
+                setItems(products);
             }
-        ).catch(
-            (err) => console.error(err)
-        )
-    }, [])
+            });
+    }, [name]);
 
     
 
