@@ -6,7 +6,8 @@ const database = [
         price: 450,
         stock: 5,
         img: '/assets/sorrentinos-jamon-queso.jpg',
-        description: 'description',
+        description: 'Rellenos de jamón cocido y queso muzzarella de primera calidad',
+        rinde: "2 personas aprox",
         category: 'Sorrentinos'
     },
     {
@@ -17,6 +18,7 @@ const database = [
         stock: 5,
         img: '/assets/sorrentinos-jamon-queso.jpg',
         description: 'description',
+        rinde: "2 personas aprox",
         category: 'Sorrentinos'
     },
     {
@@ -27,6 +29,7 @@ const database = [
         stock: 5,
         img: '/assets/panzottis-ricota-nuez.jpg',
         description: 'description',
+        rinde: "2 personas aprox",
         category: 'Panzottis'
     },
     {
@@ -37,6 +40,7 @@ const database = [
         stock: 5,
         img: '/assets/panzottis-ricota-nuez.jpg',
         description: 'description',
+        rinde: "2 personas aprox",
         category: 'Panzottis'
     },
     {
@@ -47,6 +51,7 @@ const database = [
         stock: 5,
         img: '/assets/panzottis-ricota-nuez.jpg',
         description: 'description',
+        rinde: "2 personas aprox",
         category: 'Panzottis'
     },
     {
@@ -57,6 +62,7 @@ const database = [
         stock: 5,
         img: '/assets/fideos.jpg',
         description: 'description',
+        rinde: "2 personas aprox",
         category: 'Fideos'
     },
     {
@@ -67,6 +73,7 @@ const database = [
         stock: 5,
         img: '/assets/fideos-verdes.jpg',
         description: 'description',
+        rinde: "2 personas aprox",
         category: 'Fideos'
     },   
 ]

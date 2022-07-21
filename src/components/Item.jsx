@@ -1,4 +1,4 @@
-import './Item.css'
+
 import { Link } from "react-router-dom";
 
 const Item = ({ item }) => { 
@@ -7,7 +7,7 @@ const Item = ({ item }) => {
 
     return ( 
         <>
-            <div className="card" style={{ width: "15rem", height: "30rem" }}>
+            <div className="card mt-3" style={{ width: "15rem", height: "30rem" }}>
                 <img src={img} className='card-img-top'/>
                 <div className='card-body d-flex flex-column justify-content-center'>
                     <h5 className='card-title'>
