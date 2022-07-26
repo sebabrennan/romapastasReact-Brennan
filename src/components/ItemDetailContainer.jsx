@@ -7,7 +7,6 @@ import ItemDetail from "./ItemDetail";
 const ItemDetailContainer = () => {
 
     const { id } = useParams();
-    console.log(id)
     const [itemDetail, setItemDetails] = useState({})
 
     const getItem = new Promise ((resolve) => {

@@ -1,11 +1,14 @@
 import ItemCount from './ItemCount';
+import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 
 const ItemDetail = ({itemDetail}) => {
-    
-    const {product, img, description, rinde, stock} = itemDetail
+
+    const [amount, setAmount] = useState(0);
+    const {product, img, description, rinde, stock} = itemDetail;
     const onAdd = (amount) => {
-      console.log(amount);
+      setAmount(amount);
     };
 
     return ( 
@@ -20,11 +23,14 @@ const ItemDetail = ({itemDetail}) => {
           <p>{description}</p>
           {/* <p className="card-text">{`${itemDetail.stock} units available!`}</p> */}
           <p><strong>Comen:</strong> {rinde}</p>
-          <div className="">
-            <button className="btn bg-warning m-2">Añadir al carrito</button>
-            <button className="btn bg-success m-2">Comprar ahora</button>
-          </div>
-          <ItemCount stock={stock} initial={0} onAdd={onAdd} />
+          
+            {amount == 0 ? (
+            <ItemCount stock={stock} initial={0} onAdd={onAdd} />) : (<h1>{amount} agregados al carrito</h1>)}
+            <div className="d-flex justify-content-center my-3">
+              <Link to="/cart/">
+                <button className="btn btn-warning">Ver mi pedido</button>
+              </Link>
+            </div>
         </div>
       </div>
     
