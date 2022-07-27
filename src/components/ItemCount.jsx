@@ -35,11 +35,11 @@ import { useState } from "react";
 // Ponemos valores default a las props, ya que no funcionaría si nos olvidamos de enviarlas.
 const ItemCount = ({ stock = 2, initial = 0, onAdd }) => {
   const [count, setCount] = useState(initial);
-  const updateCount = (op) => {
-    if (op === "-" && count > 0) {
+  const updateCount = (operator) => {
+    if (operator === "remove" && count > 0) {
       setCount(count - 1);
     }
-    if (op === "+" && count < stock) {
+    if (operator === "add" && count < stock) {
       setCount(count + 1);
     }
   };
@@ -60,14 +60,14 @@ const ItemCount = ({ stock = 2, initial = 0, onAdd }) => {
           type="number"
         />
         <button
-          onClick={() => updateCount("-")}
+          onClick={() => updateCount("remove")}
           className="btn btn-icon btn-warning"
           type="button"
         >
           -
         </button>
         <button
-          onClick={() => updateCount("+")}
+          onClick={() => updateCount("add")}
           className="btn btn-icon btn-warning"
           type="button"
         >
