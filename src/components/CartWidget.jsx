@@ -1,13 +1,15 @@
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 import './NavBar.css';
 
 const CartWidget= () => {
 
-  const amount = 4;
+  const { cartItems } = useContext(CartContext)
 
     return ( 
     <>
       <i className="bi bi-cart2" style={{width: 40}}></i>
-      {amount}
+      <span>{cartItems.length}</span>
     </>
       );
 }
