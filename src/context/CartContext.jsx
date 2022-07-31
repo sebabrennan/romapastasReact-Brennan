@@ -9,35 +9,38 @@ const CartProvider = ({children}) => {
   const [cartItems, setCartItems] = useState([]);
   
   /* Carrito */
-  const [cart, setCart] = useState([]);
+  /* const [cart, setCart] = useState([]); */
 
   /* Sumar un producto al carrito */
-  const addProduct = (item, quantity) => {
-    let newCart;
-    let product = cart.find(product => product.id === item.id);
-    if (product) {
-      product.quantity += quantity;
-      newCart = [...cart];
-    } else {
-      product = {...item, quantity: quantity};
-      newCart = [...cart, product];
-    }
-    setCart(newCart)
-  }
+  const addItem = (item, quantity) => {
+    const newItem = isInCart(item);
+    if (newItem){
+      quantity = quantity + newItem.quantity;
+      setCartItems(
+        cartItems.splice(
+          cartItems.findIndex((element) => element.item.id === item.id),
+          1
+        )
+      )
+    };
 
-  /* Limpiar todo el carrito */
-  const clearCart = () => setCart([]);
-
+    setCartItems([...cartItems, {item, quantity}]);
+  };
+  
   /* Verificar si ya está el producto en el carrito */  
-  const isInCart = (id) => {
-    return cart.find(product => product.id === id) ? true : false;
+  const isInCart = (item) => {
+    return cartItems.find(element => element.item === item);
   }
+  
+  /* Limpiar todo el carrito */
+  const clearCart = () => setCartItems([]);
+
   
   /* Borrar un producto del carrito */
-  const removeProduct = (id) => setCart(cart.filter(product => product.id !== id));
+  const removeProduct = (itemId) => setCartItems(cartItems.filter(element => element.item.id !== itemId));
   
   return (
-    <CartContext.Provider value={{ cartItems, setCartItems, addProduct, clearCart, isInCart, removeProduct}}>
+    <CartContext.Provider value={{ cartItems, addItem, clearCart, removeProduct}}>
       {children}
     </CartContext.Provider>
   );

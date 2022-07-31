@@ -7,7 +7,6 @@ import Spinner from "./helpers/spinner"
 const ItemListContainer = () => {
 
     const { name } = useParams();
-    console.log(name)
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false)
     

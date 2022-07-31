@@ -8,14 +8,13 @@ const ItemDetail = ({itemDetail}) => {
     const { setCartItems } = useContext(CartContext);
     const [amount, setAmount] = useState(0);
     const {product, img, description, rinde, stock} = itemDetail;
-    const {addProduct} = CartContext;
+    const {addItem} = useContext(CartContext);
     
     const onAdd = (amount) => {
-      setAmount(amount);
-      setCartItems ((prevState) => [...prevState, itemDetail]);
-      addProduct (itemDetail, amount);
+      addItem(itemDetail, amount);
     };
-
+    console.log(addItem)
+    
     return ( 
     <>
       <div className="card d-flex justify-content-around flex-row" style={{ width: "auto", margin:"3rem", borderRadius: "20px" }}>
