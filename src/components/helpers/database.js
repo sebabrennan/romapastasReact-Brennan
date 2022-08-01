@@ -8,7 +8,7 @@ const database = [
         img: '/assets/sorrentinos-jamon-queso.jpg',
         description: 'Rellenos de jamón cocido y queso muzzarella de primera calidad',
         rinde: "2 personas aprox",
-        category: 'Sorrentinos'
+        
     },
     {
         id: 2,
@@ -19,7 +19,7 @@ const database = [
         img: '/assets/sorrentinos-jamon-queso.jpg',
         description: 'description',
         rinde: "2 personas aprox",
-        category: 'Sorrentinos'
+        
     },
     {
         id: 3,
@@ -30,7 +30,7 @@ const database = [
         img: '/assets/panzottis-ricota-nuez.jpg',
         description: 'description',
         rinde: "2 personas aprox",
-        category: 'Panzottis'
+       
     },
     {
         id: 4,
@@ -41,7 +41,6 @@ const database = [
         img: '/assets/panzottis-ricota-nuez.jpg',
         description: 'description',
         rinde: "2 personas aprox",
-        category: 'Panzottis'
     },
     {
         id: 5,
@@ -52,7 +51,6 @@ const database = [
         img: '/assets/panzottis-ricota-nuez.jpg',
         description: 'description',
         rinde: "2 personas aprox",
-        category: 'Panzottis'
     },
     {
         id: 6,
@@ -63,7 +61,6 @@ const database = [
         img: '/assets/fideos.jpg',
         description: 'description',
         rinde: "2 personas aprox",
-        category: 'Fideos'
     },
     {
         id: 7,
@@ -74,7 +71,6 @@ const database = [
         img: '/assets/fideos-verdes.jpg',
         description: 'description',
         rinde: "2 personas aprox",
-        category: 'Fideos'
     },   
 ]
 
