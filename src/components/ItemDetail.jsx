@@ -13,7 +13,6 @@ const ItemDetail = ({itemDetail}) => {
     const onAdd = (amount) => {
       addItem(itemDetail, amount);
     };
-    console.log(addItem)
     
     return ( 
     <>

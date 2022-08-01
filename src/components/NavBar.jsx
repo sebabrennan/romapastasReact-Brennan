@@ -1,4 +1,4 @@
-import CartWidget from "./CartWidget";
+import CartWidget from "./Cart/CartWidget";
 import './NavBar.css';
 import navBarOptions from "./helpers/strings";
 import { Link } from "react-router-dom";
@@ -29,7 +29,8 @@ const NavBar = ({ name }) => {
                 <Link to={"category/Fideos"}>Fideos</Link></a>
             </li>
             <li className="nav-item">
-              <a className="navlink" aria-current="page" href="#"><CartWidget /></a>
+              <a className="navlink" aria-current="page" href="#">
+                <Link to={"cart"}>{<CartWidget />}</Link></a>
             </li>
           </ul>
           {/* <ul className="navbar-nav">
