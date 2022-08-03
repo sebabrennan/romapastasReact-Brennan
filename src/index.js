@@ -6,12 +6,8 @@ import reportWebVitals from './reportWebVitals';
 
 import 'bootstrap-icons/font/bootstrap-icons.css'
 
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAaOTNMMl8NStfCAtd7H0nGCb8FXLa9ozI",
   authDomain: "roma-pastas.firebaseapp.com",
@@ -21,8 +17,7 @@ const firebaseConfig = {
   appId: "1:696436054675:web:492e4ac933d7c43eca4b66"
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

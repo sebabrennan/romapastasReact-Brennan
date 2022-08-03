@@ -1,30 +1,37 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import database from "./helpers/database";
-/* import detailsItem from "./helpers/details" */
 import ItemDetail from "./ItemDetail";
+import Spinner from "./helpers/spinner";
+import { useParams } from "react-router-dom";
+import {
+    getDoc,
+    doc,
+    getFirestore,
+    collection,
+    getDocs,
+    query,
+    where,
+    limit,
+  } from "firebase/firestore";
 
-const ItemDetailContainer = () => {
-
+  
+  const ItemDetailContainer = () => {
+      
+    const [itemDetail, setItemDetails] = useState({});
+    const [loading, setLoading] = useState(true);
     const { id } = useParams();
-    const [itemDetail, setItemDetails] = useState({})
-
-    const getItem = new Promise ((resolve) => {
-        setTimeout(() => resolve(database), 2000);
-    });
 
     useEffect( () => {
-       getItem.then((res) => {
-        const products = res;
-        const foundItem = products.filter((item) => item.id == id)
-            setItemDetails(foundItem[0])
+
+        const db = getFirestore();
+        const docRef = doc(db, "items", id);
+        getDoc(docRef).then((snapshot) => {
+            setItemDetails({ ...snapshot.data(), id: snapshot.id });
+            setLoading(false)
         });
-   }, []);
+    }, [id])
 
     return ( 
-        <>
-            <ItemDetail itemDetail={itemDetail}/>
-        </>
+            loading ? <Spinner /> : <ItemDetail itemDetail={itemDetail}/>
      );
 }
  
