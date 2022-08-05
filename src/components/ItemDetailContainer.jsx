@@ -20,14 +20,17 @@ import {
     const [loading, setLoading] = useState(true);
     const { id } = useParams();
 
-    useEffect( () => {
-
+    const detailContainer = () => {
         const db = getFirestore();
         const docRef = doc(db, "items", id);
         getDoc(docRef).then((snapshot) => {
             setItemDetails({ ...snapshot.data(), id: snapshot.id });
             setLoading(false)
         });
+    }
+
+    useEffect( () => {
+        detailContainer();
     }, [id])
 
     return ( 

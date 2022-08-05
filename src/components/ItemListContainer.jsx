@@ -11,12 +11,9 @@ import {
   } from "firebase/firestore";
 
 const ItemListContainer = () => {
-
-   /*  const params = useParams()
-    console.log(params) */
     
-    const {categoryId} = useParams();
-    console.log(categoryId)
+    const {name} = useParams();
+    console.log(name)
 
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true)
@@ -24,7 +21,7 @@ const ItemListContainer = () => {
     const container = () => {
         const db = getFirestore();
         const itemsCollection = collection(db, "items");
-        const fillterCollection = categoryId ? query(itemsCollection, where("category", "==", categoryId))
+        const fillterCollection = name ? query(itemsCollection, where("category", "==", name))
         : itemsCollection;
         getDocs (fillterCollection).then(snapshot => {
             const data = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
@@ -35,7 +32,7 @@ const ItemListContainer = () => {
 
     useEffect( () => {
         container();
-    }, [categoryId])
+    }, [name]);
 
     return (
         <> 
