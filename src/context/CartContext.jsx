@@ -1,3 +1,4 @@
+import { addDoc, collection, getFirestore, writeBatch, doc, updateDoc } from "firebase/firestore";
 import React, { createContext, useState } from "react";
 
 export const CartContext = createContext();
@@ -34,6 +35,30 @@ const CartProvider = ({children}) => {
   /* Borrar un producto del carrito */
   const removeProduct = (itemId) => setCartItems(cartItems.filter(element => element.item.id !== itemId));
 
+  /* Firebase */
+  const sendOrder = (totalPrice, buyerData) => {
+    const db = getFirestore();
+    const orderCollection = collection(db, "orders");
+    const order = {
+      items: cartItems,
+      total: totalPrice,
+      buyer: buyerData
+    }
+    addDoc(orderCollection, order)
+      .then(res => {
+        alert (`Orden de compra realizada. Su id de compra es: ${res.id}`)
+        /* const {items} = order;
+        const {item} = items; */
+      }) 
+      .catch(err => alert (`Orden de compra rechazada: ${err}`))
+  }
+
+  /* const updateOrder = () => {
+    const db = getFirestore();
+    const docRef = doc(db,"orders", cartItems.id)
+    updateDoc(docRef, {stock: item.stock - quantity: item.quantity})
+  } */
+
   const total = () => {
     return cartItems.reduce(
       (valorAnterior, valorActual) => valorAnterior + valorActual.item.price * valorActual.quantity,
@@ -41,7 +66,7 @@ const CartProvider = ({children}) => {
   };
   
   return (
-    <CartContext.Provider value={{ cartItems, addItem, clearCart, removeProduct, total}}>
+    <CartContext.Provider value={{ cartItems, addItem, clearCart, removeProduct, total, sendOrder}}>
       {children}
     </CartContext.Provider>
   );

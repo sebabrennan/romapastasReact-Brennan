@@ -1,12 +1,19 @@
-import React, { useContext, /* useState, useEffect */ } from "react";
+import React, { useContext} from "react";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
 
-    const {cartItems, removeProduct, clearCart, total} = useContext(CartContext);
-    const tot= total();
+    const {cartItems, removeProduct, clearCart, total, sendOrder} = useContext(CartContext);
+    const totalPrice= total();
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const inputs = document.getElementsByTagName("input");
+        const data = Array.from(inputs).map((input, index) => input.value);
+        sendOrder(totalPrice, {name: data[0], email: data[1], phone: data[2]})        
+    }
+
 
     return ( 
         <>
@@ -40,13 +47,21 @@ const Cart = () => {
                                 <th scope="row">TOTAL</th>
                                 <td></td>
                                 <td></td>
-                                <td><strong>{tot}</strong></td>
+                                <td><strong>{totalPrice}</strong></td>
                             </tr>
                         </tbody>
                     </table>
-                    <button className="btn bg-danger" onClick={() => clearCart()}>Vaciar carrito</button>
+                    <form onSubmit={handleSubmit}>
+                        <input type="text" />
+                        <input type="email" />
+                        <input type="tel" />
+                        <button className="btn bg-info"
+                                onClick={() => sendOrder(totalPrice)}
+                                type="submit">Send order</button>
+                    </form>
+
+                    <button className="btn bg-danger" onClick={() => clearCart()}>Clean cart</button>
                     <button className="btn bg-warning"><Link to={"/"}>Seguir comprando</Link></button>
-                    <button className="btn bg-success">Terminar compra</button>
                 </>
             )}
         </>
