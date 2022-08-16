@@ -13,7 +13,6 @@ import {
 const ItemListContainer = () => {
     
     const {name} = useParams();
-    console.log(name)
 
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true)
@@ -40,8 +39,5 @@ const ItemListContainer = () => {
         </>
     )
 }
-
-
-
  
 export default ItemListContainer;

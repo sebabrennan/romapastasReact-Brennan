@@ -1,0 +1,9 @@
+.contenedor {
+    width: auto;
+    margin: 3rem;
+    border-radius: 20px;
+    background-color: #fcfc9e;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}

@@ -7,8 +7,8 @@ const CartItem = ({item, quantity, removeProduct}) => {
                 <td>{item.product}</td>
                 <td>{item.price}</td>
                 <td>{quantity}</td>
-                <button className='btn bg-danger' onClick={() => removeProduct(item.id)}>
-                    Eliminar
+                <button className='btn' onClick={() => removeProduct(item.id)}>
+                    <i class="bi bi-trash3-fill"></i>
                 </button>
             </tr>
            {/*  <div className='d-flex'> */}

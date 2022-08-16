@@ -2,7 +2,7 @@ import ItemCount from './ItemCount';
 import { useState, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
-
+import "./ItemDetail.css"
 
 const ItemDetail = ({itemDetail}) => {
     const { setCartItems } = useContext(CartContext);
@@ -16,7 +16,7 @@ const ItemDetail = ({itemDetail}) => {
     
     return ( 
     <>
-      <div className="card d-flex justify-content-around flex-row" style={{ width: "auto", margin:"3rem", borderRadius: "20px" }}>
+      <div className="card contenedor">
         <img src={img} alt='img' style={{ width: "40%", borderRadius: "20px" }}/>
         <div className='card-body d-flex flex-column'>
           <h3 className='card-title'>
@@ -36,7 +36,6 @@ const ItemDetail = ({itemDetail}) => {
             </div>
         </div>
       </div>
-    
     </> 
     );
 }

@@ -1,5 +1,6 @@
-import { addDoc, collection, getFirestore, writeBatch, doc, updateDoc } from "firebase/firestore";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 import React, { createContext, useState } from "react";
+import Swal from "sweetalert2";
 
 export const CartContext = createContext();
 
@@ -43,21 +44,27 @@ const CartProvider = ({children}) => {
       items: cartItems,
       total: totalPrice,
       buyer: buyerData
-    }
+    };
     addDoc(orderCollection, order)
       .then(res => {
-        alert (`Orden de compra realizada. Su id de compra es: ${res.id}`)
-        /* const {items} = order;
-        const {item} = items; */
+        Swal.fire({
+          icon: "success",
+          title: "Orden de compra realizada",
+          text: `Su id de compra es: ${res.id}`,
+          button: "Aceptar",
+          background: "#fcfc9e"
+        })
       }) 
-      .catch(err => alert (`Orden de compra rechazada: ${err}`))
-  }
-
-  /* const updateOrder = () => {
-    const db = getFirestore();
-    const docRef = doc(db,"orders", cartItems.id)
-    updateDoc(docRef, {stock: item.stock - quantity: item.quantity})
-  } */
+      .catch(err => {
+        Swal.fire({
+          icon: "error",
+          title: "Orden de compra rechazada",
+          text: `Intente nuevamente en unos minutos`,
+          button: "Aceptar",
+          background: "#fcfc9e"
+        })
+      })
+  };
 
   const total = () => {
     return cartItems.reduce(

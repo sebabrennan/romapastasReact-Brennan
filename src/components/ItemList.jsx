@@ -1,8 +1,9 @@
 import Item from "./Item";
+import "./ItemList.css";
 
 const ItemList = ({ items }) => {
     return (
-        <div className="d-flex justify-content-around flex-wrap mt-3">
+        <div className="contenedor">
           {items.map((item) => (
             <div key={item.id}>
               <Item item={item} />

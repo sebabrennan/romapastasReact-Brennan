@@ -2,17 +2,12 @@ import React, { useContext} from "react";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
+import "./Cart.css"
 
 const Cart = () => {
 
-    const {cartItems, removeProduct, clearCart, total, sendOrder} = useContext(CartContext);
+    const {cartItems, removeProduct, clearCart, total} = useContext(CartContext);
     const totalPrice= total();
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const inputs = document.getElementsByTagName("input");
-        const data = Array.from(inputs).map((input, index) => input.value);
-        sendOrder(totalPrice, {name: data[0], email: data[1], phone: data[2]})        
-    }
 
 
     return ( 
@@ -28,40 +23,44 @@ const Cart = () => {
                 </>
                 ) : (
                 <>
-                    <h1>Su pedido</h1>
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Nombre producto</th>
-                                <th scope="col">Precio unitario</th>
-                                <th scope="col">Unidades</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {cartItems.map((element) => (
-                                <CartItem item={element.item} quantity={element.quantity} removeProduct={removeProduct} clearCart={clearCart}/>
-                                ))
-                            }
-                            
-                            <tr>
-                                <th scope="row">TOTAL</th>
-                                <td></td>
-                                <td></td>
-                                <td><strong>{totalPrice}</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <form onSubmit={handleSubmit}>
-                        <input type="text" />
-                        <input type="email" />
-                        <input type="tel" />
-                        <button className="btn bg-info"
-                                onClick={() => sendOrder(totalPrice)}
-                                type="submit">Send order</button>
-                    </form>
+                    <div className="contenedor-cart">    
+                        <h1>Su pedido</h1>
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nombre producto</th>
+                                    <th scope="col">Precio unitario</th>
+                                    <th scope="col">Unidades</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {cartItems.map((element) => (
+                                    <CartItem item={element.item} quantity={element.quantity} removeProduct={removeProduct} clearCart={clearCart}/>
+                                    ))
+                                }
+                                <tr>
+                                    <th scope="row">TOTAL</th>
+                                    <td><strong>{totalPrice}</strong></td>
+                                    <td>
+                                        <button className="btn" onClick={() => clearCart()}>
+                                            <i class="bi bi-trash3-fill"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                    <button className="btn bg-danger" onClick={() => clearCart()}>Clean cart</button>
-                    <button className="btn bg-warning"><Link to={"/"}>Seguir comprando</Link></button>
+                
+                        <div className="d-flex justify-content-center gap-5">
+                            <button className="btn btn-color"><Link to={"/"} className="linkUnstyled">
+                                <i class="bi bi-house"></i>
+                                Inicio</Link>
+                            </button>
+                            <Link to="/sendOrder">
+                                <button className="btn bg-info">Confirmar compra</button>
+                            </Link>
+                        </div>
+                    </div>
                 </>
             )}
         </>

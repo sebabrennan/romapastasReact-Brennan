@@ -17,6 +17,7 @@ const ItemCount = ({ stock = 2, initial = 0, onAdd }) => {
       setCount(isNaN(value) ? 0 : parseInt(value));
     }
   };
+  
   return (
     <>
       <div className="input-group input-spinner mb-3 d-flex justify-content-center">
@@ -49,7 +50,7 @@ const ItemCount = ({ stock = 2, initial = 0, onAdd }) => {
           className="btn btn-info"
           disabled={count === "" || count === 0}
         >
-          Comprar
+          Agregar al carrito
         </button>
       </div>
     </>

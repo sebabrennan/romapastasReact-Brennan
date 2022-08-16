@@ -1,0 +1,24 @@
+.contenedor-cart{
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #fcfc9e;
+}
+
+.form-contenedor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+    padding: 2rem;
+    background-color: #fcfc9e;
+    border-radius: 10px;
+    width: 416px;
+}
+
+.formulario {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 1rem;
+}
