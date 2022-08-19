@@ -14,11 +14,16 @@ const Cart = () => {
         <>
             {cartItems.length === 0 ? (
                 <> 
-                    <div className="mt-4">
-                        <div>
+                    <div className="contenedor-cartvacio">
+                        <h5>
                             No hay productos en el carrito, agrega algunos
-                        </div>
-                        <button className="btn bg-warning"><Link to={"/"}>Volver</Link></button>
+                        </h5>
+                        <Link to={"/"} className="linkUnstyled">
+                            <button className="btn btn-color d-flex justify-content-center gap-2">
+                                <i class="bi bi-shop"></i>
+                                Volver a la tienda
+                            </button>
+                        </Link>
                     </div>
                 </>
                 ) : (
@@ -51,12 +56,14 @@ const Cart = () => {
                         </table>
 
                 
-                        <div className="d-flex justify-content-center gap-5">
-                            <button className="btn btn-color"><Link to={"/"} className="linkUnstyled">
-                                <i class="bi bi-house"></i>
-                                Inicio</Link>
-                            </button>
-                            <Link to="/sendOrder">
+                        <div className="contenedor-buttons">
+                            <Link to={"/"} className="linkUnstyled">
+                                <button className="btn btn-color d-flex justify-content-center gap-2">
+                                    <i class="bi bi-shop"></i>
+                                    Volver a la tienda
+                                </button>
+                            </Link>
+                            <Link to="/sendOrder" className="linkUnstyled">
                                 <button className="btn bg-info">Confirmar compra</button>
                             </Link>
                         </div>

@@ -4,6 +4,10 @@
     padding: 0.5rem;
 }
 
+.linkUnstyled:hover{
+    color: black;
+}
+
 .bg-navbar{
     background-color: #ffee00;
 }

@@ -7,5 +7,6 @@
 }
 
 .btn-color:hover{
-    color:black
+    color:black;
+    border-color: #ffc400fa;
 }

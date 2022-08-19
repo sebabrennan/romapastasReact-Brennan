@@ -18,13 +18,12 @@ const ItemDetail = ({itemDetail}) => {
     <>
       <div className="card contenedor">
         <img src={img} alt='img' style={{ width: "40%", borderRadius: "20px" }}/>
-        <div className='card-body d-flex flex-column'>
+        <div className='card-body d-flex flex-column' style={{ width: "min-content"}}>
           <h3 className='card-title'>
             {product}
           </h3>
-          <h6>Opiniones:</h6>
-          <p>{description}</p>
-          {/* <p className="card-text">{`${itemDetail.stock} units available!`}</p> */}
+          <p><strong>Descripción:</strong> {description}</p>
+          <p className="card-text"><strong>Stock:</strong>{` ¡${itemDetail.stock} unidades disponibles!`}</p>
           <p><strong>Comen:</strong> {rinde}</p>
           
             {amount == 0 ? (

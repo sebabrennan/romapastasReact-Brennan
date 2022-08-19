@@ -1,9 +1,10 @@
 .contenedor {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin-top: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
+    padding: 2rem;
     gap: 2rem;
 }
