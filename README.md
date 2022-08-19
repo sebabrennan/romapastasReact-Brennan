@@ -5,6 +5,9 @@
 
 ---
 
+## Navegacion.
+![flujo de app](https://github.com/sebabrennan/romapastasReact-Brennan/blob/master/romapastas-gif.gif)
+
 ## Pre-requisitos
 <p align="center">
     <img src="https://img.shields.io/static/v1.svg?label=Node&message=v >= 18.7.0&labelColor=339933&color=757575&logoColor=FFFFFF&logo=node.js&style=for-the-badge&logo=appveyor" alt="Node.js website"/>
